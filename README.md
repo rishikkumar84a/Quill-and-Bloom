@@ -1,73 +1,69 @@
-# Welcome to your Lovable project
+# Quill and Bloom
 
-## Project info
+Quill and Bloom is a modern, feature-rich web application designed to help users write, organize, and share their creative works. Whether you're a writer, blogger, or hobbyist, Quill and Bloom provides a beautiful, intuitive interface to manage your content and collaborate with others.
 
-**URL**: https://lovable.dev/projects/677ad5a2-51fd-46f2-bc29-7063f14e8d6d
+## Features
 
-## How can I edit this code?
+- ✍️ Rich text editor for seamless writing
+- 🗂️ Organize works into projects or categories
+- 🔍 Powerful search and filtering
+- 🔒 User authentication and secure access
+- 🌐 Share your works with others or keep them private
+- 📱 Responsive design for desktop and mobile
 
-There are several ways of editing your application.
+## Live Demo
 
-**Use Lovable**
+[Quill and Bloom on GitHub](https://github.com/rishikkumar84a/Quill-and-Bloom)
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/677ad5a2-51fd-46f2-bc29-7063f14e8d6d) and start prompting.
+## Getting Started
 
-Changes made via Lovable will be committed automatically to this repo.
+### Prerequisites
+- Node.js (v16 or higher)
+- npm (v8 or higher)
 
-**Use your preferred IDE**
+### Installation
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+1. **Clone the repository:**
+   ```sh
+   git clone https://github.com/rishikkumar84a/Quill-and-Bloom.git
+   cd Quill-and-Bloom
+   ```
+2. **Install dependencies:**
+   ```sh
+   npm install
+   ```
+3. **Start the development server:**
+   ```sh
+   npm run dev
+   ```
+4. Open your browser and visit `http://localhost:3000` to view the app.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## Usage
+- Create an account or log in.
+- Start a new project or open an existing one.
+- Use the editor to write and format your content.
+- Organize your work with tags or categories.
+- Share your work with others or keep it private.
 
-Follow these steps:
+## Technologies Used
+- React & TypeScript
+- Vite (build tool)
+- Supabase (backend/auth)
+- Tailwind CSS (styling)
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## Contributing
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+Contributions are welcome! To contribute:
+1. Fork the repository
+2. Create a new branch (`git checkout -b feature/your-feature`)
+3. Commit your changes (`git commit -am 'Add new feature'`)
+4. Push to the branch (`git push origin feature/your-feature`)
+5. Open a pull request
 
-# Step 3: Install the necessary dependencies.
-npm i
+## License
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+This project is licensed under the MIT License.
 
-**Edit a file directly in GitHub**
+---
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/677ad5a2-51fd-46f2-bc29-7063f14e8d6d) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+For questions or support, please open an issue on GitHub.
