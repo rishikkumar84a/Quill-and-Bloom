@@ -9,20 +9,106 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      [_ in never]: never
+      articles: {
+        Row: {
+          id: string;
+          title: string;
+          content: string;
+          category: string;
+          cover_image: string | null;
+          published_date: string;
+          read_time: number | null;
+          slug: string;
+          author: string | null;
+        };
+        Insert: {
+          id?: string;
+          title: string;
+          content: string;
+          category: string;
+          cover_image?: string | null;
+          published_date?: string;
+          read_time?: number | null;
+          slug: string;
+          author?: string | null;
+        };
+        Update: {
+          id?: string;
+          title?: string;
+          content?: string;
+          category?: string;
+          cover_image?: string | null;
+          published_date?: string;
+          read_time?: number | null;
+          slug?: string;
+          author?: string | null;
+        };
+      };
+      categories: {
+        Row: {
+          id: string;
+          name: string;
+          slug: string;
+          description: string | null;
+          cover_image: string | null;
+        };
+        Insert: {
+          id?: string;
+          name: string;
+          slug: string;
+          description?: string | null;
+          cover_image?: string | null;
+        };
+        Update: {
+          id?: string;
+          name?: string;
+          slug?: string;
+          description?: string | null;
+          cover_image?: string | null;
+        };
+      };
+      subscribers: {
+        Row: {
+          id: string;
+          email: string;
+          created_at: string;
+        };
+        Insert: {
+          id?: string;
+          email: string;
+          created_at?: string;
+        };
+        Update: {
+          id?: string;
+          email?: string;
+          created_at?: string;
+        };
+      };
+      users: {
+        Row: {
+          id: string;
+          email: string;
+          created_at: string;
+          role: string | null;
+        };
+        Insert: {
+          id?: string;
+          email: string;
+          created_at?: string;
+          role?: string | null;
+        };
+        Update: {
+          id?: string;
+          email?: string;
+          created_at?: string;
+          role?: string | null;
+        };
+      };
     }
-    Views: {
-      [_ in never]: never
-    }
-    Functions: {
-      [_ in never]: never
-    }
-    Enums: {
-      [_ in never]: never
-    }
-    CompositeTypes: {
-      [_ in never]: never
-    }
+    Views: object
+    Functions: object
+    Enums: object
+    CompositeTypes: object
   }
 }
 

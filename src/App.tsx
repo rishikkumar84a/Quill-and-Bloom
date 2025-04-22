@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -14,6 +13,8 @@ import Auth from "./pages/Auth";
 import Admin from "./pages/Admin";
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { useContext } from "react";
+import { AuthContext } from "@/context/AuthContext";
 
 const ADMIN_EMAIL = "rishikkumarchaurasiya@gmail.com";
 const queryClient = new QueryClient();
@@ -36,15 +37,9 @@ function AuthProvider({ children }: { children: React.ReactNode }) {
   );
 }
 
-import { createContext, useContext } from "react";
-const AuthContext = createContext(null);
-export function useAuthSession() {
-  return useContext(AuthContext);
-}
-
 // Route that restricts admin pages to the admin email
 function AdminRoute({ children }: { children: React.ReactNode }) {
-  const session = useAuthSession();
+  const session = useContext(AuthContext);
   if (!session || session?.user?.email !== ADMIN_EMAIL) {
     return <Navigate to="/auth" replace />;
   }

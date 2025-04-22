@@ -1,11 +1,10 @@
-
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Menu, X, Search, LogOut, Settings } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { supabase } from "@/integrations/supabase/client";
-import { useAuthSession } from "@/App";
+import { useAuthSession } from "@/context/AuthContext";
 
 const ADMIN_EMAIL = "rishikkumarchaurasiya@gmail.com";
 
@@ -29,10 +28,10 @@ const Navbar = () => {
         <Link to="/" className="flex items-center">
           <img 
             src="/public/lovable-uploads/320cc0d2-c3cd-4e0e-8fdb-d2fb3f65ad20.png" 
-            alt="Quill & Bloom Logo" 
+            alt="Logo Quill and Bloom" 
             className="h-10 mr-2"
           />
-          <h1 className="text-2xl font-serif font-bold text-blog-purple-dark">Quill & Bloom</h1>
+          <h1 className="text-2xl font-serif font-bold text-blog-purple-dark">Logo Quill and Bloom</h1>
         </Link>
 
         {/* Desktop Navigation */}

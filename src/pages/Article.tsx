@@ -1,11 +1,10 @@
-
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { articles } from "@/data/articles";
 import { Separator } from "@/components/ui/separator";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { useAuthSession } from "@/App";
+import { useAuthSession } from "@/context/AuthContext";
 import { Button } from "@/components/ui/button";
 import { Pencil, Trash2 } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";

@@ -1,8 +1,43 @@
-
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import { supabase } from "@/integrations/supabase/client";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setError("");
+    setSuccess(false);
+    if (!email.match(/^[^@\s]+@[^@\s]+\.[^@\s]+$/)) {
+      setError("Please enter a valid email address.");
+      setLoading(false);
+      return;
+    }
+    const { error } = await supabase.from("subscribers").insert([{ email }]);
+    if (error) {
+      setError("Subscription failed. " + error.message);
+    } else {
+      // Call Supabase Edge Function to send confirmation email
+      try {
+        await fetch("https://coupbaltmchnhxtqdccm.functions.supabase.co/send-confirmation-email", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email }),
+        });
+      } catch (err) {
+        // Optionally, you can handle/log errors here
+      }
+      setSuccess(true);
+      setEmail("");
+    }
+    setLoading(false);
+  };
 
   return (
     <footer className="bg-white border-t border-gray-100 py-12">
@@ -39,24 +74,32 @@ const Footer = () => {
             <p className="text-gray-600 leading-relaxed">
               Subscribe to receive notifications when new articles are published.
             </p>
-            <div className="flex flex-col sm:flex-row gap-2">
+            <form className="flex flex-col sm:flex-row gap-2" onSubmit={handleSubscribe}>
               <input 
                 type="email" 
                 placeholder="Your email address" 
                 className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blog-purple/50 focus:border-blog-purple"
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+                required
+                disabled={loading}
               />
               <button 
+                type="submit"
                 className="bg-blog-purple text-white font-medium px-4 py-2 rounded-md hover:bg-blog-purple-dark transition duration-200"
+                disabled={loading || !email}
               >
-                Subscribe
+                {loading ? "Subscribing..." : "Subscribe"}
               </button>
-            </div>
+            </form>
+            {success && <div className="text-green-600 text-sm mt-2">Subscribed! Check your inbox for updates.</div>}
+            {error && <div className="text-red-600 text-sm mt-2">{error}</div>}
           </div>
         </div>
 
         {/* Copyright */}
         <div className="border-t border-gray-100 mt-10 pt-6 text-center text-gray-500 text-sm">
-          <p>© {currentYear} Quill & Bloom. All rights reserved.</p>
+          <p> {currentYear} Quill & Bloom. All rights reserved.</p>
         </div>
       </div>
     </footer>
